@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>新年快乐 - 2026年新年祝福</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0032 0%, #190061 25%, #240090 50%, #3500d3 100%);
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+            overflow-y: auto;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffd700, #ff6b6b, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+
+        .chinese-new-year {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin: 10px 0;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            padding: 0 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #e6e6fa;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            padding: 0 10px;
+        }
+
+        .year-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+            margin: 15px 0;
+            animation: pulse 2s infinite, glow 3s ease-in-out infinite;
+            line-height: 1.1;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .wishes-section {
+            flex: 1;
+            min-width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+        }
+
+        .wishes-section:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #ffd700, transparent);
+        }
+
+        .wish-counter {
+            font-size: 0.9rem;
+            color: #b19cd9;
+            text-align: center;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .wish-list {
+            list-style: none;
+        }
+
+        .wish-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: rgba(255, 215, 0, 0.1);
+        }
+
+        .wish-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .wish-item:hover:before {
+            left: 100%;
+        }
+
+        .wish-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateX(5px) scale(1.01);
+            border-left: 4px solid #ffd700;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .wish-item.completed {
+            background: rgba(76, 217, 100, 0.1);
+            border-left: 4px solid #4cd964;
+        }
+
+        .wish-item.completed .wish-icon {
+            background: rgba(76, 217, 100, 0.3);
+            color: #4cd964;
+        }
+
+        .wish-item.completed .wish-text {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .wish-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 1.3rem;
+            color: #ffd700;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .wish-check {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            background: rgba(76, 217, 100, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4cd964;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .wish-item.completed .wish-check {
+            opacity: 1;
+        }
+
+        .wish-text {
+            flex: 1;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            line-height: 1.4;
+        }
+
+        .wish-progress {
+            width: 0;
+            height: 3px;
+            background: #4cd964;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: width 1s ease;
+        }
+
+        .wish-item.active .wish-text {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .interaction-section {
+            flex: 1;
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .firework {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .firework-center {
+            width: 25px;
+            height: 25px;
+            background: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b6b;
+            z-index: 1;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        .firework-particle {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: explode 2s infinite;
+        }
+
+        .firework-particle:nth-child(2) {
+            background: #4ecdc4;
+            animation-delay: 0.2s;
+        }
+
+        .firework-particle:nth-child(3) {
+            background: #ffd700;
+            animation-delay: 0.4s;
+        }
+
+        .firework-particle:nth-child(4) {
+            background: #9b5de5;
+            animation-delay: 0.6s;
+        }
+
+        .firework-particle:nth-child(5) {
+            background: #00bbf9;
+            animation-delay: 0.8s;
+        }
+
+        .firework-particle:nth-child(6) {
+            background: #f15bb5;
+            animation-delay: 1s;
+        }
+
+        .firework-particle:nth-child(7) {
+            background: #00f5d4;
+            animation-delay: 1.2s;
+        }
+
+        .firework-particle:nth-child(8) {
+            background: #ff9e00;
+            animation-delay: 1.4s;
+        }
+
+        .wish-button {
+            background: linear-gradient(to right, #ff6b6b, #ffd700);
+            color: #0c0032;
+            border: none;
+            padding: 16px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            -webkit-tap-highlight-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .wish-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .wish-button:hover:before {
+            left: 100%;
+        }
+
+        .wish-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .wish-button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .wish-button.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .wish-button.disabled:hover {
+            transform: none;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .money-button {
+            background: linear-gradient(to right, #4cd964, #ffd700);
+            margin-top: 15px;
+        }
+
+        /* 金币效果样式 */
+        .coin {
+            position: fixed;
+            font-size: 1.5rem;
+            color: #ffd700;
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+        }
+
+        .coin-fall {
+            position: fixed;
+            font-size: 2rem;
+            color: #ffd700;
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            animation: coinFall 3s linear forwards;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+        }
+
+        /* 新增：庆祝金币效果 */
+        .coin-celebrate {
+            position: fixed;
+            font-size: 2rem;
+            color: #ffd700;
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            animation: coinCelebrate 3s ease-out forwards;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 10px;
+            border-radius: 15px;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .countdown-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #e6e6fa;
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 10px;
+            color: #b19cd9;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            color: #ffd700;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px 15px;
+            border-radius: 15px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            display: none;
+            border-left: 5px solid #ffd700;
+            width: 100%;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4cd964, #ffd700);
+            width: 0%;
+            transition: width 1s ease;
+            border-radius: 5px;
+        }
+
+        .message.show {
+            display: block;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* 修复：金币从上向下掉落动画 */
+        @keyframes coinFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(720deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* 庆祝金币效果 - 从中心向四周扩散 */
+        @keyframes coinCelebrate {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(calc(var(--tx) * 1px), calc(var(--ty) * 1px)) rotate(720deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes snowFall {
+            0% {
+                transform: translateY(-10px) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* 响应式设计 - 平板 */
+        @media (min-width: 768px) {
+            .container {
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            .year-display {
+                font-size: 4.5rem;
+            }
+
+            .wishes-section, .interaction-section {
+                min-width: calc(50% - 20px);
+            }
+
+            .wish-button {
+                width: auto;
+                max-width: none;
+            }
+
+            .firework {
+                width: 280px;
+                height: 280px;
+            }
+        }
+
+        /* 响应式设计 - 桌面 */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 3.8rem;
+            }
+
+            .year-display {
+                font-size: 5rem;
+            }
+
+            .wishes-section, .interaction-section {
+                min-width: calc(50% - 20px);
+            }
+
+            .wish-item {
+                padding: 15px;
+            }
+
+            .firework {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        /* 响应式设计 - 小手机 */
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+
+            .year-display {
+                font-size: 3.2rem;
+            }
+
+            .chinese-new-year {
+                font-size: 1.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .countdown-item {
+                min-width: 70px;
+                padding: 12px 8px;
+            }
+
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+
+            .wish-text {
+                font-size: 1rem;
+            }
+
+            .wish-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+                margin-right: 10px;
+            }
+
+            .firework {
+                width: 220px;
+                height: 220px;
+            }
+
+            .wish-button {
+                padding: 14px 25px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* 横屏模式优化 */
+        @media (max-height: 600px) and (orientation: landscape) {
+            header {
+                padding: 10px 0 20px;
+            }
+
+            .year-display {
+                font-size: 3rem;
+                margin: 10px 0;
+            }
+
+            .countdown {
+                margin-top: 20px;
+            }
+
+            .content {
+                margin-top: 20px;
+            }
+
+            .firework {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* 防止移动端长按弹出菜单 */
+        .wish-item, .wish-button {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* 确保内容可以滚动 */
+        .scrollable-content {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body class="scrollable-content">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-star"></i>
+            </div>
+            <h1>新年快乐</h1>
+            <div class="chinese-new-year">🎉 恭喜发财，万事如意🎉</div>
+            <div class="subtitle">code by Finnick</div>
+            <div class="year-display" id="yearDisplay">2026</div>
+        </header>
+
+        <div class="content">
+            <section class="wishes-section">
+                <h2 class="section-title">新年愿望清单 <span class="wish-counter" id="wishCounter">已完成 0/5</span></h2>
+                <ul class="wish-list">
+                    <li class="wish-item" data-wish="1">
+                        <div class="wish-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="wish-text">我得健康无疾病(包括家人朋友)</div>
+                        <div class="wish-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="wish-progress"></div>
+                    </li>
+                    <li class="wish-item" data-wish="2">
+                        <div class="wish-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="wish-text">我得工作顺心意(远离sb)</div>
+                        <div class="wish-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="wish-progress"></div>
+                    </li>
+                    <li class="wish-item" data-wish="3">
+                        <div class="wish-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="wish-text">我得赚钱发大财(没有上限)</div>
+                        <div class="wish-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="wish-progress"></div>
+                    </li>
+                    <li class="wish-item" data-wish="4">
+                        <div class="wish-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="wish-text">捡个香奈儿送老刘太太(尽量捡)</div>
+                        <div class="wish-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="wish-progress"></div>
+                    </li>
+                    <li class="wish-item" data-wish="5">
+                        <div class="wish-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="wish-text">世界和平</div>
+                        <div class="wish-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="wish-progress"></div>
+                    </li>
+                </ul>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </section>
+
+            <section class="interaction-section">
+                <div class="firework">
+                    <div class="firework-center"></div>
+                    <div class="firework-particle" style="--tx: 0px; --ty: -120px;"></div>
+                    <div class="firework-particle" style="--tx: 85px; --ty: -85px;"></div>
+                    <div class="firework-particle" style="--tx: 120px; --ty: 0px;"></div>
+                    <div class="firework-particle" style="--tx: 85px; --ty: 85px;"></div>
+                    <div class="firework-particle" style="--tx: 0px; --ty: 120px;"></div>
+                    <div class="firework-particle" style="--tx: -85px; --ty: 85px;"></div>
+                    <div class="firework-particle" style="--tx: -120px; --ty: 0px;"></div>
+                    <div class="firework-particle" style="--tx: -85px; --ty: -85px;"></div>
+                </div>
+
+                <button class="wish-button" id="wishButton">
+                    <i class="fas fa-gift"></i> 获取我的新年祝福
+                </button>
+
+                <div class="message" id="wishMessage">
+                    祝您在新的一年里，心想事成，万事如意！所有的愿望都能实现，每一天都充满喜悦和收获！
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p class="footer-text">© Finn 的新年祝福</p>
+            <p>祝你成功！愿2026年所有的愿望都能实现！</p>
+        </footer>
+    </div>
+
+    <script>
+        // 修复滚动问题
+        function fixMobileScrolling() {
+            // 确保body可以滚动
+            document.body.style.overflowY = 'auto';
+            document.body.style.height = 'auto';
+            document.body.style.minHeight = '100vh';
+
+            // 防止iOS橡皮筋效果过于强烈
+            document.addEventListener('touchmove', function(e) {
+                // 允许正常滚动
+            }, { passive: true });
+
+            // 防止双击缩放
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        }
+
+        // 创建雪花效果
+        function createSnowflakes() {
+            const snowflakeCount = window.innerWidth < 768 ? 20 : 30;
+
+            for (let i = 0; i < snowflakeCount; i++) {
+                setTimeout(() => {
+                    const snowflake = document.createElement('div');
+                    snowflake.classList.add('snowflake');
+
+                    // 随机大小
+                    const size = Math.random() * 6 + 3;
+                    snowflake.style.width = `${size}px`;
+                    snowflake.style.height = `${size}px`;
+
+                    // 随机位置
+                    snowflake.style.left = `${Math.random() * 100}vw`;
+                    snowflake.style.top = `-10px`;
+
+                    // 随机透明度
+                    snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+
+                    // 随机动画时长
+                    const duration = Math.random() * 10 + 10;
+                    snowflake.style.animation = `snowFall ${duration}s linear infinite`;
+
+                    // 随机动画延迟
+                    snowflake.style.animationDelay = `${Math.random() * 5}s`;
+
+                    document.body.appendChild(snowflake);
+
+                    // 移除雪花以优化性能
+                    setTimeout(() => {
+                        if (snowflake.parentNode) {
+                            snowflake.remove();
+                        }
+                    }, duration * 1000);
+                }, i * 300);
+            }
+
+            // 定期创建新雪花
+            setTimeout(createSnowflakes, 15000);
+        }
+
+        // 创建金币掉落效果 - 从上向下掉落
+        function createMoneyFall() {
+            const moneyCount = window.innerWidth < 768 ? 20 : 35;
+            const moneyButton = document.getElementById('moneyButton');
+            moneyButton.classList.add('disabled');
+            moneyButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 金币掉落中...';
+
+            // 金币类型
+            const coinTypes = ['💰', '🪙', '💵', '💎', '💶', '💷', '💴'];
+
+            for (let i = 0; i < moneyCount; i++) {
+                setTimeout(() => {
+                    const coin = document.createElement('div');
+                    coin.classList.add('coin-fall');
+
+                    // 随机选择金币类型
+                    const coinType = coinTypes[Math.floor(Math.random() * coinTypes.length)];
+                    coin.innerHTML = coinType;
+
+                    // 随机水平位置
+                    coin.style.left = `${Math.random() * 90 + 5}vw`;
+
+                    // 随机大小
+                    const fontSize = Math.random() * 25 + 20;
+                    coin.style.fontSize = `${fontSize}px`;
+
+                    // 随机动画时长
+                    const duration = Math.random() * 2 + 2;
+                    coin.style.animationDuration = `${duration}s`;
+
+                    // 随机延迟开始
+                    coin.style.animationDelay = `${Math.random() * 0.5}s`;
+
+                    document.body.appendChild(coin);
+
+                    // 动画结束后移除元素
+                    setTimeout(() => {
+                        if (coin.parentNode) {
+                            coin.remove();
+                        }
+                    }, (duration + 0.5) * 1000);
+                }, i * 80); // 更密集的金币掉落
+            }
+
+            // 重置按钮状态
+            setTimeout(() => {
+                moneyButton.classList.remove('disabled');
+                moneyButton.innerHTML = '<i class="fas fa-money-bill-wave"></i> 掉落金币祈福';
+
+                // 显示祝福消息
+                const moneyMessages = [
+                    "💰 财神到！2026年财运亨通，日进斗金！",
+                    "🪙 金币滚滚来，新年发大财！",
+                    "💵 恭喜发财，红包拿来！祝你财源广进！",
+                    "💎 金玉满堂，富贵吉祥，新年赚大钱！"
+                ];
+
+                const randomIndex = Math.floor(Math.random() * moneyMessages.length);
+                const messageElement = document.getElementById('wishMessage');
+                messageElement.textContent = moneyMessages[randomIndex];
+                messageElement.classList.add('show');
+
+                // 同时创建一些庆祝金币效果
+                createCelebrateCoins();
+
+            }, moneyCount * 80 + 2000);
+        }
+
+        // 创建庆祝金币效果 - 从中心向四周扩散
+        function createCelebrateCoins() {
+            const coinCount = window.innerWidth < 768 ? 25 : 40;
+            const coinTypes = ['💰', '🪙', '💵', '💎', '💶', '💷', '💴'];
+
+            // 获取屏幕中心
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            for (let i = 0; i < coinCount; i++) {
+                setTimeout(() => {
+                    const coin = document.createElement('div');
+                    coin.classList.add('coin-celebrate');
+
+                    // 随机选择金币类型
+                    const coinType = coinTypes[Math.floor(Math.random() * coinTypes.length)];
+                    coin.innerHTML = coinType;
+
+                    // 设置起始位置为屏幕中心
+                    coin.style.left = `${centerX}px`;
+                    coin.style.top = `${centerY}px`;
+
+                    // 随机大小
+                    const fontSize = Math.random() * 20 + 15;
+                    coin.style.fontSize = `${fontSize}px`;
+
+                    // 随机方向角度
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 100 + Math.random() * 300;
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+
+                    // 设置CSS自定义属性
+                    coin.style.setProperty('--tx', tx);
+                    coin.style.setProperty('--ty', ty);
+
+                    // 随机动画时长
+                    const duration = Math.random() * 2 + 1.5;
+                    coin.style.animationDuration = `${duration}s`;
+
+                    document.body.appendChild(coin);
+
+                    // 动画结束后移除元素
+                    setTimeout(() => {
+                        if (coin.parentNode) {
+                            coin.remove();
+                        }
+                    }, duration * 1000);
+                }, i * 30);
+            }
+        }
+
+        // 创建金币飞舞效果（用于其他庆祝场合）
+        function createCoins() {
+            const coinCount = window.innerWidth < 768 ? 20 : 30;
+            const coinTypes = ['💰', '🪙', '💵', '💎', '💶', '💷', '💴'];
+
+            for (let i = 0; i < coinCount; i++) {
+                setTimeout(() => {
+                    const coin = document.createElement('div');
+                    coin.classList.add('coin-celebrate');
+
+                    // 随机选择金币类型
+                    const coinType = coinTypes[Math.floor(Math.random() * coinTypes.length)];
+                    coin.innerHTML = coinType;
+
+                    // 设置起始位置为随机位置
+                    const startX = Math.random() * window.innerWidth;
+                    const startY = Math.random() * window.innerHeight;
+                    coin.style.left = `${startX}px`;
+                    coin.style.top = `${startY}px`;
+
+                    // 随机大小
+                    const fontSize = Math.random() * 20 + 15;
+                    coin.style.fontSize = `${fontSize}px`;
+
+                    // 随机方向
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 50 + Math.random() * 150;
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+
+                    // 设置CSS自定义属性
+                    coin.style.setProperty('--tx', tx);
+                    coin.style.setProperty('--ty', ty);
+
+                    // 随机动画时长
+                    const duration = Math.random() * 2 + 1.5;
+                    coin.style.animationDuration = `${duration}s`;
+
+                    document.body.appendChild(coin);
+
+                    // 动画结束后移除元素
+                    setTimeout(() => {
+                        if (coin.parentNode) {
+                            coin.remove();
+                        }
+                    }, duration * 1000);
+                }, i * 50);
+            }
+        }
+
+        // 更新愿望完成进度
+        function updateWishProgress() {
+            const completedWishes = document.querySelectorAll('.wish-item.completed').length;
+            const totalWishes = document.querySelectorAll('.wish-item').length;
+            const progress = (completedWishes / totalWishes) * 100;
+
+            document.getElementById('wishCounter').textContent = `已完成 ${completedWishes}/${totalWishes}`;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+
+            // 如果所有愿望都完成了
+            if (completedWishes === totalWishes) {
+                const messageElement = document.getElementById('wishMessage');
+                messageElement.textContent = "🎉 太棒了！您已完成所有新年愿望！2026年一定会好运连连！";
+                messageElement.classList.add('show');
+
+                // 创建盛大庆祝效果
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        createCelebrateCoins();
+                    }, i * 100);
+                }
+            }
+        }
+
+        // 倒计时功能
+        function updateCountdown() {
+            const now = new Date();
+            const newYear = new Date(now.getFullYear() + 1, 0, 1); // 下一年的1月1日
+            const diff = newYear - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            // 每天更新一次年份
+            if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+                updateYear();
+            }
+        }
+
+        // 愿望交互功能
+        document.querySelectorAll('.wish-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // 切换完成状态
+                this.classList.toggle('completed');
+
+                // 获取愿望ID
+                const wishId = parseInt(this.getAttribute('data-wish'));
+
+                // 显示对应的祝福消息
+                const messages = [
+                    "健康是人生最大的财富，愿您和家人新年健康平安，无病无灾！",
+                    "工作顺利，事业腾飞，远离烦恼，职场人际关系和谐！",
+                    "财源广进，日进斗金，赚钱没有上限，早日实现财富自由！",
+                    "孝心感动天地，香奈儿会有的，老刘太太一定会开心的！",
+                    "世界和平是全人类的共同愿望，愿新的一年全球更加和谐安宁！"
+                ];
+
+                const messageElement = document.getElementById('wishMessage');
+                if (this.classList.contains('completed')) {
+                    messageElement.textContent = `✅ 已许愿：${messages[wishId-1]}`;
+
+                    // 为完成的愿望添加进度条动画
+                    const progressBar = this.querySelector('.wish-progress');
+                    progressBar.style.width = '100%';
+
+                    // 创建庆祝效果
+                    createCoins();
+                } else {
+                    messageElement.textContent = `📝 愿望已取消：${this.querySelector('.wish-text').textContent}`;
+
+                    // 重置进度条
+                    const progressBar = this.querySelector('.wish-progress');
+                    progressBar.style.width = '0%';
+                }
+
+                messageElement.classList.add('show');
+
+                // 更新进度
+                updateWishProgress();
+            });
+
+            // 添加触摸反馈
+            item.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            item.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // 愿望按钮功能
+        document.getElementById('wishButton').addEventListener('click', function() {
+            const messages = [
+                "🎯 愿您在新的一年里，心想事成，万事如意！",
+                "🧧 祝您新年快乐，阖家幸福，财源广进！",
+                "💪 愿新年带给您健康、幸福和无限的喜悦！",
+                "🚀 祝您事业腾飞，学业进步，爱情甜蜜！",
+                "🌟 愿您在新的一年里，每一天都充满阳光和希望！",
+                "🍀 祝您新年新气象，梦想成真，好运连连！",
+                "🎁 2026年，所有的美好都会与您不期而遇！",
+                "✨ 新年新起点，愿您开启人生新篇章！"
+            ];
+
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            const messageElement = document.getElementById('wishMessage');
+            messageElement.textContent = messages[randomIndex];
+            messageElement.classList.add('show');
+
+            // 创建庆祝效果
+            createCoins();
+
+            // 按钮动画
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+
+        // 金币按钮功能
+        document.getElementById('moneyButton').addEventListener('click', function() {
+            if (!this.classList.contains('disabled')) {
+                createMoneyFall();
+            }
+        });
+
+        // 添加触摸反馈
+        document.querySelectorAll('.wish-button').forEach(button => {
+            button.addEventListener('touchstart', function() {
+                if (!this.classList.contains('disabled')) {
+                    this.style.transform = 'scale(0.95)';
+                }
+            });
+
+            button.addEventListener('touchend', function() {
+                if (!this.classList.contains('disabled')) {
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+
+        // 年份更新
+        function updateYear() {
+            const now = new Date();
+            const year = now.getFullYear();
+            document.getElementById('yearDisplay').textContent = year;
+
+            // 添加年份动画效果
+            const yearElement = document.getElementById('yearDisplay');
+            yearElement.style.animation = 'none';
+            setTimeout(() => {
+                yearElement.style.animation = 'pulse 2s infinite, glow 3s ease-in-out infinite';
+            }, 10);
+        }
+
+        // 初始化
+        updateYear();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // 修复移动端滚动
+        fixMobileScrolling();
+
+        // 启动雪花效果
+        setTimeout(createSnowflakes, 1000);
+
+        // 更新愿望进度
+        updateWishProgress();
+
+        // 页面加载时显示一个欢迎消息
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('wishMessage').classList.add('show');
+
+                // 为愿望图标添加轻微浮动效果
+                document.querySelectorAll('.wish-icon').forEach((icon, index) => {
+                    icon.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite`;
+                });
+            }, 1000);
+        });
+
+        // 处理横竖屏切换
+        window.addEventListener('resize', function() {
+            // 重新计算一些元素的大小
+            updateYear();
+        });
+
+        // 确保页面可以滚动
+        document.addEventListener('touchmove', function(e) {
+            // 允许滚动
+        }, { passive: true });
+
+        // 防止iOS的橡皮筋效果导致页面无法滚动
+        document.body.addEventListener('touchmove', function(e) {
+            if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                // 允许默认滚动行为
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
